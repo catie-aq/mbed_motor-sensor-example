@@ -1,6 +1,6 @@
 # mbed_motor-sensor-example
 
-An example of using the 6TRON Motor Sensor library with MbedOS.
+An example of using the 6TRON Motor Sensor library with MbedOS, using a [AS5047 magnetic sensor](https://ams.com/as5047p) in SPI.
 
 ## Requirements
 
@@ -8,14 +8,15 @@ An example of using the 6TRON Motor Sensor library with MbedOS.
 
 The following boards are required:
 
-- *List mbed_motor-sensor-example hardware requirements here*
+- *Any MBED supported board*
+- One AS5047 magnetic sensor with SPI support
 
 ### Software requirements
 
 mbed_motor-sensor-example makes use of the following libraries (automatically
 imported by `mbed deploy` or `mbed import`):
 
-- *List mbed_motor-sensor-example software requirements here*
+- *[6tron_motor-sensor](https://github.com/catie-aq/6tron_motor-sensor)*
 
 ## Usage
 
