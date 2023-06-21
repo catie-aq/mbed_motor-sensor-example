@@ -2,8 +2,9 @@
  * Copyright (c) 2023, CATIE
  * SPDX-License-Identifier: Apache-2.0
  */
+#include "as5047x.h"
 #include "mbed.h"
-#include "motor_sensor_AS5047p.h"
+#include "motor_sensor_AS5047x.h"
 
 // Encoder parameters
 #define UPDATE_RATE 50ms
@@ -12,6 +13,7 @@
 #define ENC_WHEEL_RADIUS 0.035f
 SPI spiAS5047p(PA_7, PA_6, PA_5); // mosi, miso, sclk
 #define AS5047_CS PA_8
+sixtron::AS5047x sensor_as5047(&spiAS5047p, AS5047_CS);
 
 // Sensor update
 #define SENSOR_FLAG 0x01
@@ -34,8 +36,7 @@ int main()
     float dt_pid = f_secs.count();
 
     // Create AS5047p sensor
-    sixtron::MotorSensorAS5047P my_sensor(&spiAS5047p,
-            AS5047_CS,
+    sixtron::MotorSensorAS5047x my_sensor(&sensor_as5047,
             dt_pid,
             ENC_RESOLUTION,
             ENC_RESOLUTION * MOTOR_REDUCTION,
